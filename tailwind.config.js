@@ -9,7 +9,8 @@ export default {
         'primary': '#868484',
       },
       screens: {
-        'tablet': '640px',
+        'sm':'576px',
+        'md': '820px',
         'desktop': '1024px',
       },
     },

@@ -3,7 +3,10 @@
 @tailwind components;
 @tailwind utilities;
 
-
+html{
+  overflow: hidden;
+  box-sizing: border-box;
+}
 
 
 
