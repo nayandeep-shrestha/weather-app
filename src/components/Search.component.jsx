@@ -1,34 +1,10 @@
 import { useState } from "react"
 import getLatLong from "../services/GetoApi"
+import { FaSearch } from "react-icons/fa";
 
 const Search = ({ updateLocation }) => {
     const [location, setLocation] = useState("")
     const [latLong, setLatLong] = useState(null)
-    
-    // const handleEnter = (e) => {
-    //     if (e.key === "Enter") {
-    //         if (location === "") {
-    //             return 0;
-    //         }
-    //         else {
-    //             const getData = async () => {
-    //                 const data = await getLatLong(location)
-    //                 console.log(data)
-    //             }
-    //             getData()
-    //             // setLatLong(data)
-    //             if (latLong) {
-    //                 updateLocation(
-    //                     {
-    //                         lat: latLong[0].lat,
-    //                         long: latLong[0].long,
-    //                         address: latLong[0].address,
-    //                     }
-    //                 )
-    //             }
-    //         }
-    //     }
-    // }
     const handleSubmit = (e) => {
         e.preventDefault()
         if (location === "") {
@@ -54,17 +30,23 @@ const Search = ({ updateLocation }) => {
             }
         }
     }
+    const handleKeyDown = (e) => {
+        if (e.key === 'Enter') {
+          e.preventDefault(); 
+          handleSubmit(e); 
+        }
+      };
     return (
         <>
             <div className="w-full mt-10 flex justify-center items-center">
-                <form action="" onSubmit={handleSubmit} className="h-[50px] bg-white px-10 rounded-3xl w-[25%]">
+                <form action="" onSubmit={handleSubmit} className=" bg-white p-2 rounded-3xl w-[60%] sm:w-[40%] md:w-[35%] lg:w-[25%] flex">
                 <input type="text" id="search-bar" placeholder="Location"
-                    className="border-2 border-black"
+                    className="flex-[80%] text-center font-medium focus:outline-none bg-transparent"
                     value={location}
                     onChange={e => setLocation(e.target.value)}
-                    // onKeyDown={handleEnter}
+                    onKeyDown={handleKeyDown}
                 />
-                <button type="submit">asdfads</button>
+                <button type="submit" className="flex-[20%] border-l border-slate-400 flex justify-center items-center"><FaSearch color={"blue"}/></button>
                 </form>
             </div>
         </>
