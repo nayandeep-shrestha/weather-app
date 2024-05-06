@@ -10,7 +10,8 @@ export default function getLatLong(place) {
                     result.push(
                         {
                             lat:response.data.features[0].properties.lat,
-                            long:response.data.features[0].properties.lon
+                            long:response.data.features[0].properties.lon,
+                            address:response.data.features[0].properties.city,
                         }
                     )
                     return result;
