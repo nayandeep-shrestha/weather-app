@@ -51,7 +51,11 @@ const Weather = () => {
                 {weatherData.temp}
               </span>
               <span className='text-[21px] text-primary md:text-[24px] flex gap-3'>  
-              <WeatherIcon code={weatherData ? weatherData.weatherCondition.weatherCode : ""} size={"w-[32px] h-[32px] "} />{weatherData.minTemp}° / {weatherData.maxTemp}°</span>
+              <span className="block sm:hidden">
+              <WeatherIcon code={weatherData ? weatherData.weatherCondition.weatherCode : ""} size={"w-[32px] h-[32px] "}/>
+              </span>
+              {weatherData.minTemp}° / {weatherData.maxTemp}°
+              </span>
             </div>
             <div className="index flex-[100%] flex flex-row flex-wrap justify-center items-start px-3 mt-5 md:flex-1 md:flex-col md:mt-0">
               <div className="wind flex-[50%] flex justify-center items-center gap-2 text-primary font-medium text-[28px] sm:flex-1 sm:text-[32px]">

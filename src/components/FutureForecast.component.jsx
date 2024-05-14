@@ -38,7 +38,7 @@ const FutureForecast = (props) => {
                 {forecastDetail && forecastDetail.map((daily, index) => (
                     daily.day === "today" ? <></> :
                         <div key={index} className="flex flex-col justify-content items-center">
-                            <WeatherIcon code={daily.weather_code.weatherCode} />
+                            <WeatherIcon code={daily.weather_code.weatherCode} size='w-[32px] h-[32px]' />
                             <div className='text-[24px] text-primary'> {daily.temperature_2m_min}° / {daily.temperature_2m_max}°</div>
                             <span className='text-[18px] text-primary font-semibold '> {daily.day === 'tomorrow' ? 'TOM' : daily.day} </span>
                         </div>
